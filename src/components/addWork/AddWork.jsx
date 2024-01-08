@@ -1,13 +1,13 @@
-import {Link, Navigate, useParams } from "react-router-dom"
+import {Link, useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
-import * as service from "../../services/services";
-import { useNavigate } from "react-router-dom";
+import * as service from "../../services/TimesCrudServices";
 
 
 
 
 const AddWork = (props) =>{
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const [items, setItems] = useState(
         {
@@ -49,7 +49,8 @@ const AddWork = (props) =>{
         service.addWork(items)
         
     }
-    Navigate('/');
+  navigate('/');  
+   
 }
 
     
